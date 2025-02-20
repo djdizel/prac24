@@ -11,15 +11,15 @@ namespace prac24
         /// <summary>
         /// скрытые поля
         /// </summary>
-        string brand;
+        string model;
         string color;
         double skor;
         /// <summary>
         /// Инкапсуляция полей
         /// </summary>
-        public string Brand { get { return brand;} set { brand = value; } }
-        public string Color { get { return color; } set { color = value; } }
-        public double Skor { get { return skor; } set { if (value < 20) { skor = 20; } else if (value > 120) { skor = 120; } else { skor = value; } } }
+        public string Model { get { if (model == null || model == string.Empty) { return "Неизвестный"; } return model; } set { model = value; } }
+        public string Color { get { if (color == null || color == string.Empty) { return "Неизвестный"; } return color; } set { color = value; } }
+        public double Skor { get { return skor; } set { if (value < 60) { skor = 60; } else if (value > 150) { skor = 150; } else { skor = value; } } }
         /// <summary>
         /// Конструктор без параметров
         /// </summary>
@@ -30,9 +30,9 @@ namespace prac24
         /// <param name="brand"></param>
         /// <param name="color"></param>
         /// <param name="skor"></param>
-        public Avto(string brand, string color, double skor) 
+        public Avto(string model, string color, double skor) 
         { 
-        this.Brand = brand;
+        this.Model = model;
         this.Color = color;
         this.Skor = skor;
         }
@@ -42,7 +42,7 @@ namespace prac24
         /// <returns></returns>
         public override string ToString()
         {
-            return $"Brand = {Brand}, Color = {Color}, Skor = {Skor}";
+            return $"Brand = {Model}, Color = {Color}, Skor = {Skor}";
         }
     }
 }
