@@ -17,8 +17,19 @@ namespace prac24
         /// <summary>
         /// Инкапсуляция полей
         /// </summary>
-        public string Model { get { if (model == null || model == string.Empty) { return "Неизвестный"; } return model; } set { model = value; } }
-        public string Color { get { if (color == null || color == string.Empty) { return "Неизвестный"; } return color; } set { color = value; } }
+        public string Model 
+        {
+            get
+            {
+                return (model != "") ? model : "неизвестно";
+            }
+                //if (model == null || model == "") { return "Неизвестный"; } return model; }
+            set 
+            { 
+                model = value; 
+            } 
+        }
+        public string Color { get { if (color == null || color == "") { return "Неизвестный"; } return color; } set { color = value; } }
         public double Skor { get { return skor; } set { if (value < 60) { skor = 60; } else if (value > 150) { skor = 150; } else { skor = value; } } }
         /// <summary>
         /// Конструктор без параметров
